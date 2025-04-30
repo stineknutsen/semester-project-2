@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js" type="module" defer></script>
   </head>
-  <body class="bg-light">
-    <header class="shadow-sm shadow-dark">
+  <body class="bg-light min-h-screen grid grid-rows-[auto_1fr_auto]">
+    <header class="">
       <nav class="mx-auto lg:max-w-[1200px]">
-        <div class="flex justify-between">
+        <div class="flex justify-between shadow-sm shadow-dark">
           <a href="/" class="flex items-center py-4 px-2">
             <img src="images/logo.png" alt="Logo" class="h-14"
           /></a>
@@ -28,8 +28,8 @@
             <a href="/" class="py-4 px-2 text-dark font-poppins hover:underline"
               >About</a
             >
-            <a href="register/index.html" class="py-4 px-2 text-dark"
-              ><svg
+            <button class="py-4 px-2 text-dark" id="profile-btn-desktop">
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -43,10 +43,26 @@
                   d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                 />
               </svg>
-            </a>
+            </button>
           </div>
 
-          <div class="flex md:hidden items-center">
+          <div class="flex md:hidden items-center gap-2">
+            <button class="" id="profile-btn-phone">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-8"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+            </button>
             <button class="" id="menu-btn">
               <svg
                 class="w-6 h-6 text-dark hover:text-primary"
@@ -63,13 +79,8 @@
           </div>
         </div>
 
-        <div class="hidden bg-secondary" id="mobile-menu">
+        <div class="hidden bg-secondary w-24 right-0 absolute" id="dropdown">
           <ul class="text-center">
-            <li>
-              <a href="/" class="block text-sm font-poppins underline py-4 px-2"
-                >Listings</a
-              >
-            </li>
             <li>
               <a
                 href="/"
@@ -84,6 +95,16 @@
                 >Login</a
               >
             </li>
+          </ul>
+        </div>
+        <div class="hidden bg-secondary w-full" id="mobile-menu">
+          <ul class="text-center">
+            <li>
+              <a href="/" class="block text-sm font-poppins underline py-4 px-2"
+                >Listings</a
+              >
+            </li>
+
             <li>
               <a
                 href="/"
@@ -102,5 +123,27 @@
         </div>
       </nav>
     </header>
+    <main></main>
+    <footer class="bg-secondary p-4">
+      <nav
+        class="flex lg:max-w-[1200px] mx-auto flex-col md:flex-row py-8 px-4 gap-12 justify-evenly md:items-center"
+      >
+        <div class="flex justify-center md:justify-start">
+          <img src="images/logo.png" alt="Logo" class="h-14" />
+        </div>
+        <div class="flex flex-col md:flex-row gap-12">
+          <div class="flex flex-col gap-2">
+            <a class="hover:underline">How to buy</a>
+            <a class="hover:underline">How to sell</a>
+            <a class="hover:underline">Policy</a>
+          </div>
+          <div class="flex flex-col gap-2">
+            <a>Open 10-5 monday-saturday</a>
+            <a>support@auctioneer.com</a>
+            <a>+47 40710338</a>
+          </div>
+        </div>
+      </nav>
+    </footer>
   </body>
 </html>
