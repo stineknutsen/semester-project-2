@@ -846,6 +846,18 @@ video {
   height: 1.5rem;
 }
 
+.h-10{
+  height: 2.5rem;
+}
+
+.h-12{
+  height: 3rem;
+}
+
+.h-8{
+  height: 2rem;
+}
+
 .min-h-screen{
   min-height: 100vh;
 }
@@ -872,10 +884,6 @@ video {
 
 .w-full{
   width: 100%;
-}
-
-.max-w-\[600px\]{
-  max-width: 600px;
 }
 
 .max-w-\[350px\]{
@@ -1874,14 +1882,14 @@ video {
   border-style: none;
 }
 
-.border-primary{
-  --tw-border-opacity: 1;
-  border-color: rgb(244 82 82 / var(--tw-border-opacity, 1));
-}
-
 .border-dark{
   --tw-border-opacity: 1;
   border-color: rgb(6 4 4 / var(--tw-border-opacity, 1));
+}
+
+.border-primary{
+  --tw-border-opacity: 1;
+  border-color: rgb(244 82 82 / var(--tw-border-opacity, 1));
 }
 
 .bg-\[rgb\(255\2c 0\2c 0\)\]{
@@ -1894,9 +1902,8 @@ video {
   background-color: rgb(254 251 251 / var(--tw-bg-opacity, 1));
 }
 
-.bg-secondary{
-  --tw-bg-opacity: 1;
-  background-color: rgb(242 175 175 / var(--tw-bg-opacity, 1));
+.bg-light\/75{
+  background-color: rgb(254 251 251 / 0.75);
 }
 
 .bg-primary{
@@ -1904,16 +1911,13 @@ video {
   background-color: rgb(244 82 82 / var(--tw-bg-opacity, 1));
 }
 
-.bg-transparent{
-  background-color: transparent;
+.bg-secondary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 175 175 / var(--tw-bg-opacity, 1));
 }
 
-.bg-light\/50{
-  background-color: rgb(254 251 251 / 0.5);
-}
-
-.bg-light\/75{
-  background-color: rgb(254 251 251 / 0.75);
+.bg-secondary\/75{
+  background-color: rgb(242 175 175 / 0.75);
 }
 
 .decoration-slice{
@@ -2026,16 +2030,16 @@ video {
      object-fit: scale-down;
 }
 
-.p-4{
-  padding: 1rem;
+.p-1{
+  padding: 0.25rem;
 }
 
 .p-2{
   padding: 0.5rem;
 }
 
-.p-1{
-  padding: 0.25rem;
+.p-4{
+  padding: 1rem;
 }
 
 .px-1{
@@ -2063,9 +2067,9 @@ video {
   padding-right: 1.25rem;
 }
 
-.py-12{
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .py-4{
@@ -2076,20 +2080,6 @@ video {
 .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.py-16{
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-.py-6{
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.pt-6{
-  padding-top: 1.5rem;
 }
 
 .text-left{
@@ -2148,12 +2138,12 @@ video {
   vertical-align: super;
 }
 
-.font-poppins{
-  font-family: Poppins, sans-serif;
-}
-
 .font-ledger{
   font-family: Ledger, serif;
+}
+
+.font-poppins{
+  font-family: Poppins, sans-serif;
 }
 
 .text-3xl{
@@ -2261,14 +2251,14 @@ video {
   color: rgb(6 4 4 / var(--tw-text-opacity, 1));
 }
 
-.text-white{
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
 .text-light{
   --tw-text-opacity: 1;
   color: rgb(254 251 251 / var(--tw-text-opacity, 1));
+}
+
+.text-white{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .underline{
@@ -2698,27 +2688,14 @@ video {
   }
 }
 
-.hover\:text-pretty:hover{
-  text-wrap: pretty;
-}
-
-.hover\:border:hover{
-  border-width: 1px;
-}
-
-.hover\:border-primary:hover{
-  --tw-border-opacity: 1;
-  border-color: rgb(244 82 82 / var(--tw-border-opacity, 1));
+.hover\:bg-light:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 251 251 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-secondary:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(242 175 175 / var(--tw-bg-opacity, 1));
-}
-
-.hover\:bg-light:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 251 251 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:font-bold:hover{
@@ -2732,12 +2709,6 @@ video {
 
 .hover\:underline:hover{
   text-decoration-line: underline;
-}
-
-.hover\:shadow-lg:hover{
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .before\:hover\:text-center:hover::before{
@@ -2773,8 +2744,8 @@ video {
     display: none;
   }
 
-  .md\:max-w-\[1200px\]{
-    max-width: 1200px;
+  .md\:h-14{
+    height: 3.5rem;
   }
 
   .md\:flex-row{
@@ -2787,10 +2758,6 @@ video {
 
   .md\:justify-start{
     justify-content: flex-start;
-  }
-
-  .md\:text-center{
-    text-align: center;
   }
 }
 

@@ -26,27 +26,27 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js" type="module" defer></script>
   </head>
-  <body class="bg-light min-h-screen grid grid-rows-[auto_1fr_auto]">
-    <header class="">
-      <nav class="mx-auto lg:max-w-[1200px]">
+  <body class="bg-light min-h-screen grid grid-rows-[auto_1fr_auto] text-dark">
+    <header class="sticky top-0 bg-light">
+      <nav class="mx-auto">
         <div class="flex justify-between shadow-sm shadow-dark">
           <a href="/" class="flex items-center py-4 px-2">
-            <img src="images/logo.png" alt="Logo" class="h-14"
+            <img src="images/logo.png" alt="Logo" class="h-10 md:h-14"
           /></a>
 
           <div class="hidden md:flex items-center space-x-4">
+            <a href="" class="py-4 px-2 font-poppins underline">Listings</a>
             <a
               href=""
-              class="py-4 px-2 font-poppins underline underline-pink-600"
-              >Listings</a
-            >
-            <a href="" class="py-4 px-2 text-dark font-poppins hover:underline"
+              class="py-4 px-2 font-poppins hover:underline transition duration-300"
               >Policy</a
             >
-            <a href="" class="py-4 px-2 text-dark font-poppins hover:underline"
+            <a
+              href=""
+              class="py-4 px-2 font-poppins hover:underline transition duration-300"
               >About</a
             >
-            <button class="py-4 px-2 text-dark" id="profile-btn-desktop">
+            <button class="py-4 px-2" id="profile-btn-desktop">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -83,7 +83,7 @@
             </button>
             <button class="" id="menu-btn">
               <svg
-                class="w-6 h-6 text-dark hover:text-primary"
+                class="w-6 h-6 text-dark hover:text-primary transition duration-300"
                 fill="none"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -97,28 +97,33 @@
           </div>
         </div>
 
-        <div class="hidden bg-secondary w-24 right-0 absolute" id="dropdown">
+        <div class="hidden bg-light/75 w-24 right-0 absolute" id="dropdown">
           <ul class="text-center">
             <li>
               <a
                 href="account/register.html"
-                class="block text-sm font-poppins py-4 px-2 hover:underline"
+                class="block text-sm font-poppins py-4 px-2 shadow border border-dark hover:underline hover:bg-light transition duration-300"
                 >Register</a
               >
             </li>
             <li>
               <a
                 href="account/login.html"
-                class="block text-sm font-poppins py-4 px-2 hover:underline"
+                class="block text-sm font-poppins py-4 px-2 shadow border border-dark border-t-0 hover:underline hover:bg-light transition duration-300"
                 >Login</a
               >
             </li>
           </ul>
         </div>
-        <div class="hidden bg-secondary w-full" id="mobile-menu">
+        <div
+          class="hidden w-full bg.light shadow border border-dark border-t-0"
+          id="mobile-menu"
+        >
           <ul class="text-center">
             <li>
-              <a href="" class="block text-sm font-poppins underline py-4 px-2"
+              <a
+                href=""
+                class="block text-sm font-poppins underline py-4 px-2 bg-secondary"
                 >Listings</a
               >
             </li>
@@ -126,14 +131,14 @@
             <li>
               <a
                 href=""
-                class="block text-sm font-poppins py-4 px-2 hover:underline"
+                class="block text-sm font-poppins py-4 px-2 hover:underline hover:bg-secondary transition duration-300"
                 >About</a
               >
             </li>
             <li>
               <a
                 href=""
-                class="block text-sm font-poppins py-4 px-2 hover:underline"
+                class="block text-sm font-poppins py-4 px-2 hover:underline hover:bg-secondary transition duration-300"
                 >Policy</a
               >
             </li>
@@ -142,7 +147,7 @@
       </nav>
     </header>
     <main></main>
-    <footer class="bg-secondary p-4">
+    <footer class="bg-secondary p-4 shadow-inner shadow-dark">
       <nav
         class="flex lg:max-w-[1200px] mx-auto flex-col md:flex-row py-8 px-4 gap-12 justify-evenly md:items-center"
       >

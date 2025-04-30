@@ -26,26 +26,28 @@
     <script src="../js/script.js" type="module" defer></script>
   </head>
   <body class="bg-light min-h-screen grid grid-rows-[auto_1fr_auto] text-dark">
-    <header class="sticky top-0">
+    <header class="sticky top-0 bg-light">
       <nav class="mx-auto">
         <div class="flex justify-between shadow-sm shadow-dark">
           <a href="/" class="flex items-center py-4 px-2">
-            <img src="../images/logo.png" alt="Logo" class="h-14"
+            <img src="../images/logo.png" alt="Logo" class="h-10 md:h-14"
           /></a>
 
           <div class="hidden md:flex items-center space-x-4">
-            <a
-              href="/"
-              class="py-4 px-2 font-poppins underline underline-pink-600"
+            <a href="/" class="py-4 px-2 font-poppins hover:underline"
               >Listings</a
             >
-            <a href="" class="py-4 px-2 text-dark font-poppins hover:underline"
+            <a
+              href=""
+              class="py-4 px-2 font-poppins hover:underline transition duration-300"
               >Policy</a
             >
-            <a href="" class="py-4 px-2 text-dark font-poppins hover:underline"
+            <a
+              href=""
+              class="py-4 px-2 font-poppins hover:underline transition duration-300"
               >About</a
             >
-            <button class="py-4 px-2 text-dark" id="profile-btn-desktop">
+            <button class="py-4 px-2" id="profile-btn-desktop">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -82,7 +84,7 @@
             </button>
             <button class="" id="menu-btn">
               <svg
-                class="w-6 h-6 text-dark hover:text-primary"
+                class="w-6 h-6 text-dark hover:text-primary transition duration-300"
                 fill="none"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -114,10 +116,15 @@
             </li>
           </ul>
         </div>
-        <div class="hidden bg-secondary w-full" id="mobile-menu">
+        <div
+          class="hidden w-full absolute bg-light shadow border border-dark border-t-0"
+          id="mobile-menu"
+        >
           <ul class="text-center">
             <li>
-              <a href="/" class="block text-sm font-poppins underline py-4 px-2"
+              <a
+                href="/"
+                class="block text-sm font-poppins underline py-4 px-2 bg-secondary"
                 >Listings</a
               >
             </li>
@@ -125,14 +132,14 @@
             <li>
               <a
                 href=""
-                class="block text-sm font-poppins py-4 px-2 hover:underline"
+                class="block text-sm font-poppins py-4 px-2 hover:underline hover:bg-secondary transition duration-300"
                 >About</a
               >
             </li>
             <li>
               <a
                 href=""
-                class="block text-sm font-poppins py-4 px-2 hover:underline"
+                class="block text-sm font-poppins py-4 px-2 hover:underline hover:bg-secondary transition duration-300"
                 >Policy</a
               >
             </li>
@@ -141,10 +148,8 @@
       </nav>
     </header>
     <main class="bg-secondary flex align center justify-center">
-      <section class="py-16">
-        <div
-          class="mx-auto bg-light border border-dark shadow p-4 rounded-lg max-w-[350px]"
-        >
+      <section class="py-16 max-w-[350px]">
+        <div class="mx-auto bg-light border border-dark shadow p-4 rounded-lg">
           <h1 class="text-3xl font-ledger py-4">Register</h1>
           <form action="" class="flex flex-col gap-4">
             <div class="flex flex-col gap-2">
