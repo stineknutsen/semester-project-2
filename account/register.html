@@ -25,9 +25,9 @@
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/script.js" type="module" defer></script>
   </head>
-  <body class="bg-light min-h-screen grid grid-rows-[auto_1fr_auto]">
-    <header class="">
-      <nav class="mx-auto lg:max-w-[1200px]">
+  <body class="bg-light min-h-screen grid grid-rows-[auto_1fr_auto] text-dark">
+    <header class="sticky top-0">
+      <nav class="mx-auto">
         <div class="flex justify-between shadow-sm shadow-dark">
           <a href="/" class="flex items-center py-4 px-2">
             <img src="../images/logo.png" alt="Logo" class="h-14"
@@ -96,19 +96,19 @@
           </div>
         </div>
 
-        <div class="hidden bg-secondary w-24 right-0 absolute" id="dropdown">
+        <div class="hidden bg-light/75 w-24 right-0 absolute" id="dropdown">
           <ul class="text-center">
             <li>
               <a
                 href=""
-                class="block text-sm font-poppins py-4 px-2 hover:underline"
+                class="block text-sm font-poppins py-4 px-2 shadow border border-dark hover:underline hover:bg-light transition duration-300"
                 >Register</a
               >
             </li>
             <li>
               <a
                 href="login.html"
-                class="block text-sm font-poppins py-4 px-2 hover:underline"
+                class="block text-sm font-poppins py-4 px-2 shadow border border-dark border-t-0 hover:underline hover:bg-light transition duration-300"
                 >Login</a
               >
             </li>
@@ -140,8 +140,49 @@
         </div>
       </nav>
     </header>
-    <main></main>
-    <footer class="bg-secondary p-4">
+    <main class="bg-secondary flex align center justify-center">
+      <section class="py-16">
+        <div
+          class="mx-auto bg-light border border-dark shadow p-4 rounded-lg max-w-[350px]"
+        >
+          <h1 class="text-3xl font-ledger py-4">Register</h1>
+          <form action="" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+              <label for="name" class="font-poppins">Username</label>
+              <input
+                type="text"
+                placeholder="Enter your username"
+                class="border border-dark rounded-md p-1"
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="email" class="font-poppins">Email</label>
+              <input
+                type="text"
+                placeholder="Enter your email"
+                class="border border-dark rounded-md p-1"
+              />
+              <p class="text-xs">Must be a valid @stud.noroff.no email</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="password" class="font-poppins">Password</label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                class="border border-dark rounded-md p-1"
+              />
+              <p class="text-xs">Minimum 8 characters</p>
+            </div>
+            <button
+              class="bg-primary text-light border border-primary font-poppins font-semibold rounded-md p-2 shadow hover:bg-light hover:text-primary transition duration-200"
+            >
+              Register
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-secondary p-4 shadow-inner shadow-dark">
       <nav
         class="flex lg:max-w-[1200px] mx-auto flex-col md:flex-row py-8 px-4 gap-12 justify-evenly md:items-center"
       >
