@@ -1,5 +1,5 @@
 import { registerHandler } from "./handlers/auth/registerHandler.js";
-import { toggleDropdown } from "./ui/toggleDropdown.js";
+import { toggleDropdown } from "./utils/toggleDropdown.js";
 import { toggleMenu } from "./utils/toggleMenu.js";
 
 function router() {
@@ -15,6 +15,10 @@ function router() {
     case "/account/register":
     case "/account/register.html":
       registerHandler();
+      break;
+    case "/account/login":
+    case "/account/login.html":
+      loginHandler();
       break;
   }
 }
