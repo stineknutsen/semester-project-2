@@ -1,6 +1,6 @@
 import { registerHandler } from "./handlers/auth/registerHandler.js";
 import { toggleDropdown } from "./ui/toggleDropdown.js";
-import { toggleMenu } from "./ui/toggleMenu.js";
+import { toggleMenu } from "./utils/toggleMenu.js";
 
 function router() {
   const { pathname } = window.location;
