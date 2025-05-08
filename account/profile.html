@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile | Auctioneer</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../images/favicons/site.webmanifest" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/script.js" type="module" defer></script>
+  </head>
+  <body class="bg-light min-h-screen grid grid-rows-[auto_1fr_auto] text-dark">
+    <header class="sticky top-0 bg-light">
+      <nav class="mx-auto">
+        <div class="flex justify-between shadow-sm shadow-dark">
+          <a href="/" class="flex items-center py-4 px-2">
+            <img src="../images/logo.png" alt="Logo" class="h-10 md:h-14"
+          /></a>
+
+          <div class="hidden md:flex items-center space-x-4">
+            <a
+              href="/"
+              class="py-4 px-2 font-poppins hover:text-primary transition duration-300"
+              >Listings</a
+            >
+            <a
+              href=""
+              class="py-4 px-2 font-poppins hover:text-primary transition duration-300"
+              >Policy</a
+            >
+            <a
+              href=""
+              class="py-4 px-2 font-poppins hover:text-primary transition duration-300"
+              >About</a
+            >
+            <button class="py-4 px-2" id="profile-btn-desktop">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-8 text-dark hover:text-primary transition duration-300"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="flex md:hidden items-center gap-2">
+            <button class="" id="profile-btn-phone">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-8 text-dark hover:text-primary transition duration-300"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+            </button>
+            <button class="" id="menu-btn">
+              <svg
+                class="w-6 h-6 text-dark hover:text-primary transition duration-300"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="hidden bg-light w-24 right-0 absolute" id="dropdown">
+          <ul class="text-center">
+            <li>
+              <a
+                href=""
+                id="register-btn"
+                class="block text-sm font-poppins py-4 px-2 shadow border border-dark text-primary bg-light"
+                >Register</a
+              >
+            </li>
+            <li>
+              <a
+                href="login.html"
+                id="login-btn"
+                class="block text-sm font-poppins py-4 px-2 shadow border border-dark border-t-0 hover:text-primary hover:bg-light transition duration-300"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div
+          class="hidden w-full absolute bg-light shadow border border-dark border-t-0"
+          id="mobile-menu"
+        >
+          <ul class="text-center">
+            <li>
+              <a
+                href="/"
+                class="block text-sm font-poppins py-4 px-2 hover:text-primary transition duration-300"
+                >Listings</a
+              >
+            </li>
+
+            <li>
+              <a
+                href=""
+                class="block text-sm font-poppins py-4 px-2 hover:text-primary transition duration-300"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="block text-sm font-poppins py-4 px-2 hover:text-primary transition duration-300"
+                >Policy</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="bg-light flex align center justify-center">
+      <section id="profile"></section>
+      <section id="edit-profile"></section>
+      <section id="listings"></section>
+      <section id="edit listing"></section>
+      <section id="bids"></section>
+      <section id="purchases"></section>
+    </main>
+    <footer class="bg-secondary p-4 shadow-inner shadow-dark">
+      <nav
+        class="flex lg:max-w-[1200px] mx-auto flex-col md:flex-row py-8 px-4 gap-12 justify-evenly md:items-center"
+      >
+        <div class="flex justify-center md:justify-start">
+          <img src="../images/logo.png" alt="Logo" class="h-14" />
+        </div>
+        <div class="flex flex-col md:flex-row gap-12">
+          <div class="flex flex-col gap-2">
+            <a class="hover:underline">How to buy</a>
+            <a class="hover:underline">How to sell</a>
+            <a class="hover:underline">Policy</a>
+          </div>
+          <div class="flex flex-col gap-2">
+            <a>Open 10-17 Monday-Saturday</a>
+            <a>support@auctioneer.com</a>
+            <a>+47 00000000</a>
+          </div>
+        </div>
+      </nav>
+    </footer>
+  </body>
+</html>
