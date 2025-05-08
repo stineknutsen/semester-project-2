@@ -2,6 +2,7 @@ import { loginUser } from "../../api/auth/loginUser.js";
 import { setToken, setUsername } from "../../utils/localStorage.js";
 import { displayMessage } from "../../utils/displayMessage.js";
 import { showLoader, hideLoader } from "../../utils/loader.js";
+import { updateHeader } from "../../utils/updateHeader.js";
 
 export function loginHandler() {
   const loginForm = document.querySelector("#login-form");
@@ -21,7 +22,7 @@ export function loginHandler() {
           "Login successful! Redirecting..."
         );
         setTimeout(() => {
-          location.href = "/account/profile";
+          location.href = "/account/profile.html";
         }, 1500);
       } catch (error) {
         hideLoader("loader");
