@@ -2,6 +2,7 @@ import { loginHandler } from "./handlers/auth/loginHandler.js";
 import { registerHandler } from "./handlers/auth/registerHandler.js";
 import { toggleDropdown } from "./utils/toggleDropdown.js";
 import { toggleMenu } from "./utils/toggleMenu.js";
+import { updateHeader } from "./utils/updateHeader.js";
 
 function router() {
   const { pathname } = window.location;
@@ -24,6 +25,7 @@ function router() {
   }
 }
 
+updateHeader();
 toggleMenu();
 toggleDropdown();
 
