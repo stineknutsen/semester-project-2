@@ -148,7 +148,98 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main class="">
+      <section class="flex flex-col md:flex-row-reverse items-center">
+        <div class="relative w-full md:w-1/2 h-72 md:h-96 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="gold chain bracelet laying on top of a fashion magazine"
+            class="w-full h-full object-cover hover:scale-105 transition duration-300"
+          />
+          <div
+            class="md:hidden absolute bottom-0 left-0 w-full bg-light/80 text-center p-4 z-10 space-y-2"
+          >
+            <h1 class="font-ledger text-2xl">Find your favorites</h1>
+          </div>
+        </div>
+
+        <div
+          class="hidden md:flex md:flex-col md:w-1/2 justify-center items-center text-center p-6"
+        >
+          <h1 class="font-ledger text-4xl mb-4">Find your favorites</h1>
+          <button
+            class="bg-primary text-light py-2 px-4 rounded-lg border border-primary font-poppins font-semibold shadow shadow-dark hover:bg-light hover:text-primary transition duration-300"
+          >
+            Create listing
+          </button>
+        </div>
+      </section>
+      <section
+        class="flex flex-col md:flex-row justify-center items-center text-center p-6"
+      >
+        <button
+          class="md:hidden bg-primary text-light py-2 px-4 rounded-lg border border-primary font-poppins font-semibold shadow shadow-dark hover:bg-light hover:text-primary transition duration-300"
+        >
+          Create listing
+        </button>
+      </section>
+      <section
+        class="flex flex-col md:flex-row justify-center md:justify-between items-center text-center p-6 gap-4"
+      >
+        <div id="search-container" class="flex flex-col items-start">
+          <label for="search" class="font-ledger md:text-lg"
+            >Search Listings</label
+          >
+          <input
+            type="text"
+            placeholder="Search"
+            class="border border-dark py-2 px-4 rounded-lg"
+          />
+        </div>
+        <div id="filter-container" class="flex flex-col items-start">
+          <label for="filter" class="font-ledger md:text-lg"
+            >Filter by Tags</label
+          >
+          <input
+            type="text"
+            placeholder="Enter tags (comma separated)"
+            class="border border-dark py-2 px-4 rounded-lg"
+          />
+        </div>
+      </section>
+      <section class="flex justify-between items-center text-center p-6">
+        <h2 class="font-ledger text-3xl py-4">Listings</h2>
+        <div id="sort-container">
+          <select id="sort" class="border border-dark py-2 px-4 rounded-lg">
+            <option>Newest</option>
+            <option>Oldest</option>
+          </select>
+        </div>
+      </section>
+      <section id="listings-container"></section>
+      <section
+        class="bg-secondary flex flex-col items-center p-8 mb-10 shadow shadow-dark gap-4"
+      >
+        <div class="text-center">
+          <h4 class="font-ledger text-2xl">Sign up for our newsletter</h4>
+          <p class="font-poppins">
+            And be the first to know about exclusive auctions!
+          </p>
+        </div>
+        <div id="" class="flex flex-col md:flex-row gap-4">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="border border-dark py-2 px-4 rounded-lg"
+          />
+          <button
+            class="bg-primary text-light py-2 px-4 rounded-lg border border-primary font-poppins font-semibold shadow shadow-dark hover:bg-light hover:text-primary transition duration-300"
+          >
+            Sign up
+          </button>
+        </div>
+      </section>
+    </main>
     <footer class="bg-secondary p-4 shadow-inner shadow-dark">
       <nav
         class="flex lg:max-w-[1200px] mx-auto flex-col md:flex-row py-8 px-4 gap-12 justify-evenly md:items-center"
