@@ -27,7 +27,7 @@
     <script src="js/script.js" type="module" defer></script>
   </head>
   <body class="bg-light min-h-screen grid grid-rows-[auto_1fr_auto] text-dark">
-    <header class="sticky top-0 bg-light">
+    <header class="sticky top-0 bg-light z-50">
       <nav class="mx-auto">
         <div class="flex justify-between shadow-sm shadow-dark">
           <a href="/" class="flex items-center py-4 px-2">
@@ -150,7 +150,7 @@
     </header>
     <main class="">
       <section class="flex flex-col md:flex-row-reverse items-center">
-        <div class="relative w-full md:w-1/2 h-72 md:h-96 overflow-hidden">
+        <div class="relative z-0 w-full md:w-1/2 h-72 md:h-96 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="gold chain bracelet laying on top of a fashion magazine"
@@ -184,7 +184,7 @@
         </button>
       </section>
       <section
-        class="flex flex-col md:flex-row justify-center md:justify-between items-center text-center p-6 gap-4"
+        class="flex flex-col sm:flex-row justify-center max-w-[1200px] mx-auto md:justify-between items-center text-center p-6 gap-4"
       >
         <div id="search-container" class="flex flex-col items-start">
           <label for="search" class="font-ledger md:text-lg"
@@ -207,7 +207,9 @@
           />
         </div>
       </section>
-      <section class="flex justify-between items-center text-center p-6">
+      <section
+        class="flex justify-between items-center text-center p-6 max-w-[1200px] mx-auto"
+      >
         <h2 class="font-ledger text-3xl py-4">Listings</h2>
         <div id="sort-container">
           <select id="sort" class="border border-dark py-2 px-4 rounded-lg">
