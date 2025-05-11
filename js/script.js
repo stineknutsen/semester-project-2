@@ -4,6 +4,7 @@ import { toggleDropdown } from "./utils/toggleDropdown.js";
 import { toggleMenu } from "./utils/toggleMenu.js";
 import { updateHeader } from "./utils/updateHeader.js";
 import { displayProfile } from "./handlers/profile/displayProfile.js";
+import { editProfileHandler } from "./handlers/profile/editProfileHandler.js";
 
 function router() {
   const { pathname } = window.location;

@@ -1,3 +1,5 @@
+import { editProfileHandler } from "../../handlers/profile/editProfileHandler.js";
+
 export function renderProfile(profileData, container) {
   container.innerHTML = "";
 
@@ -6,21 +8,19 @@ export function renderProfile(profileData, container) {
     "flex flex-col max-w-[1200px] shadow-md rounded-md overflow-hidden";
 
   const bannerWrapper = document.createElement("div");
-  bannerWrapper.className = "relative";
+  bannerWrapper.className = "relative max-h-[280px] overflow-hidden";
 
   const banner = document.createElement("img");
   banner.src =
     profileData.banner?.url || "https://via.placeholder.com/1200x300";
   banner.alt = profileData.banner?.alt || "Profile banner";
-  banner.className = "object-cover w-full max-h-[300px]";
+  banner.className = "object-cover w-full";
 
   const editBtn = document.createElement("button");
+  editBtn.id = "edit-profile-btn";
   editBtn.textContent = "Edit Profile";
   editBtn.className =
     "absolute top-4 right-4 bg-light text-dark border border-dark font-poppins text-sm rounded-md px-4 py-2 shadow hover:scale-105 transition duration-200 z-10";
-  editBtn.addEventListener("click", () => {
-    window.location.href = "";
-  });
 
   const profileSection = document.createElement("div");
   profileSection.className = "flex justify-between p-4 items-end";
@@ -28,10 +28,10 @@ export function renderProfile(profileData, container) {
   const avatar = document.createElement("img");
   avatar.src = profileData.avatar?.url || "https://via.placeholder.com/150";
   avatar.alt = profileData.avatar?.alt || "Profile avatar";
-  avatar.className = "w-24 h-24 rounded-full";
+  avatar.className = "w-16 h-16 md:w-24 md:h-24 rounded-full ";
 
   const infoWrapper = document.createElement("div");
-  infoWrapper.className = "flex flex-col ";
+  infoWrapper.className = " ";
 
   const name = document.createElement("h2");
   name.textContent = profileData.name;
@@ -42,7 +42,7 @@ export function renderProfile(profileData, container) {
   email.className = "text-sm ";
 
   const bio = document.createElement("p");
-  bio.textContent = profileData.bio || "No bio available.";
+  bio.textContent = profileData.bio || "Edit profile to add your bio";
   bio.className = "text-sm mt-2";
 
   const credits = document.createElement("p");
@@ -50,7 +50,7 @@ export function renderProfile(profileData, container) {
   credits.className = "text-sm mt-2";
 
   const profileWrapper = document.createElement("div");
-  profileWrapper.className = "flex gap-4";
+  profileWrapper.className = "flex gap-4 items-center";
 
   bannerWrapper.append(banner, editBtn);
   infoWrapper.append(name, email, bio);
