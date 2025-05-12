@@ -19,6 +19,5 @@ export async function loginUser(user) {
 
     throw errorMessage;
   }
-  console.log(data);
   return data;
 }

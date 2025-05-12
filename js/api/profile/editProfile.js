@@ -20,7 +20,6 @@ export async function editProfile(updatedProfile) {
   };
 
   const PROFILE_URL = `${PROFILES_URL}/${username}`;
-  console.log(PROFILE_URL);
   const response = await fetch(PROFILE_URL, options);
 
   if (!response.ok) {

@@ -6,15 +6,11 @@ export function editProfileHandler(profileData) {
   const form = document.getElementById("profile-form");
   const editBtn = document.getElementById("edit-profile-btn");
   const cancelBtn = document.getElementById("edit-profile-cancel");
-  console.log("slayyyyyyyyy");
-  console.log(formSection, form, editBtn);
 
   if (!formSection || !form || !editBtn) return;
 
-  // Toggle visibility and pre-fill data
   editBtn.addEventListener("click", () => {
     formSection.classList.toggle("hidden");
-    console.log(formSection.classList);
     form.elements.avatarUrl.value = profileData.avatar.url;
     form.elements.avatarAlt.value = profileData.avatar.alt;
     form.elements.bannerUrl.value = profileData.banner.url;
@@ -26,7 +22,6 @@ export function editProfileHandler(profileData) {
     formSection.classList.add("hidden");
   });
 
-  // Submit handler
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     showLoader("edit-profile-loader");

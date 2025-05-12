@@ -7,7 +7,6 @@ import { getUsername } from "../../utils/localStorage.js";
 export async function displayProfile() {
   const container = document.getElementById("profile-header");
   const username = getUsername();
-  console.log(username);
 
   if (!username) {
     container.textContent = "Log in to see profile.";
