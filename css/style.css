@@ -803,6 +803,14 @@ video {
   margin-top: 0.5rem;
 }
 
+.mt-1{
+  margin-top: 0.25rem;
+}
+
+.mt-8{
+  margin-top: 2rem;
+}
+
 .box-border{
   box-sizing: border-box;
 }

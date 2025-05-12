@@ -1,11 +1,9 @@
-import { editProfileHandler } from "../../handlers/profile/editProfileHandler.js";
-
 export function renderProfile(profileData, container) {
   container.innerHTML = "";
 
   const wrapper = document.createElement("div");
   wrapper.className =
-    "flex flex-col max-w-[1200px] shadow-md rounded-md overflow-hidden";
+    "flex flex-col max-w-[1200px] mt-8 shadow-md rounded-md overflow-hidden";
 
   const bannerWrapper = document.createElement("div");
   bannerWrapper.className = "relative max-h-[280px] overflow-hidden";

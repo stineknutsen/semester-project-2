@@ -1,11 +1,13 @@
 import { editProfile } from "../../api/profile/editProfile.js";
 import { showLoader, hideLoader } from "../../utils/loader.js";
+import { displayMessage } from "../../utils/displayMessage.js";
 
 export function editProfileHandler(profileData) {
   const formSection = document.getElementById("edit-profile-form");
   const form = document.getElementById("profile-form");
   const editBtn = document.getElementById("edit-profile-btn");
   const cancelBtn = document.getElementById("edit-profile-cancel");
+  const messageContainer = document.getElementById("edit-profile-message");
 
   if (!formSection || !form || !editBtn) return;
 
@@ -22,9 +24,8 @@ export function editProfileHandler(profileData) {
     formSection.classList.add("hidden");
   });
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    showLoader("edit-profile-loader");
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
     const updatedProfile = {
       avatar: {
@@ -39,12 +40,24 @@ export function editProfileHandler(profileData) {
     };
 
     try {
+      showLoader("edit-profile-loader");
       await editProfile(updatedProfile);
       hideLoader("edit-profile-loader");
-      alert("Profile updated successfully!");
-      location.reload();
+      displayMessage(
+        messageContainer,
+        "success",
+        "Profile updated successfully! Reloading..."
+      );
+      setTimeout(() => {
+        location.reload();
+      }, 1500);
     } catch (err) {
-      alert("Failed to update profile.");
+      hideLoader("edit-profile-loader");
+      displayMessage(
+        messageContainer,
+        "error",
+        "Failed to update profile. Please try again."
+      );
     }
   });
 }
