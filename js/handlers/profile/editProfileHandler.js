@@ -5,6 +5,7 @@ export function editProfileHandler(profileData) {
   const formSection = document.getElementById("edit-profile-form");
   const form = document.getElementById("profile-form");
   const editBtn = document.getElementById("edit-profile-btn");
+  const cancelBtn = document.getElementById("edit-profile-cancel");
   console.log("slayyyyyyyyy");
   console.log(formSection, form, editBtn);
 
@@ -19,6 +20,10 @@ export function editProfileHandler(profileData) {
     form.elements.bannerUrl.value = profileData.banner.url;
     form.elements.bannerAlt.value = profileData.banner.alt;
     form.elements.bio.value = profileData.bio || "Edit profile to add your bio";
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    formSection.classList.add("hidden");
   });
 
   // Submit handler
