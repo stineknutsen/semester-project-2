@@ -168,8 +168,7 @@
         >
           <h1 class="font-ledger text-4xl mb-4">Find your favorites</h1>
           <button
-            id="create-listing-btn-lg"
-            class="bg-primary text-light py-2 px-4 rounded-lg border border-primary font-poppins font-semibold shadow shadow-dark hover:bg-light hover:text-primary transition duration-300"
+            class="create-listing-btn bg-primary text-light py-2 px-4 rounded-lg border border-primary font-poppins font-semibold shadow shadow-dark hover:bg-light hover:text-primary transition duration-300"
           >
             Create listing
           </button>
@@ -179,86 +178,85 @@
         class="flex flex-col md:flex-row justify-center items-center text-center p-6"
       >
         <button
-          id="create-listing-btn-sm"
-          class="md:hidden bg-primary text-light py-2 px-4 rounded-lg border border-primary font-poppins font-semibold shadow shadow-dark hover:bg-light hover:text-primary transition duration-300"
+          class="create-listing-btn md:hidden bg-primary text-light py-2 px-4 rounded-lg border border-primary font-poppins font-semibold shadow shadow-dark hover:bg-light hover:text-primary transition duration-300"
         >
           Create listing
         </button>
       </section>
 
-      <section class="flex flex-col max-w-[1200px] mx-auto p-6 gap-4">
+      <section
+        class="flex flex-col justify-center max-w-[1200px] mx-auto p-6 gap-4"
+      >
         <div
           id="create-listing-form"
-          class="mt-4 bg-secondary p-6 rounded shadow-md max-w-md"
+          class="hidden mt-4 bg-secondary p-6 rounded shadow-md max-w-md mx-auto"
         >
-          <!-- add hidden class above this line -->
-
           <form id="listing-form" class="space-y-4">
             <h1 class="font-ledger text-2xl">Create Listing</h1>
             <div>
-              <label class="block text-sm font-medium text-gray-700"
-                >Title</label
-              >
+              <label class="font-poppins">Title</label>
               <input
                 type="text"
                 name="title"
-                class="mt-1 w-full px-3 py-2 border rounded"
+                class="border border-dark rounded-md p-1 w-full"
                 required
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700"
-                >Description</label
-              >
+              <label class="font-poppins">Description</label>
               <textarea
                 name="description"
                 rows="3"
-                class="mt-1 w-full px-3 py-2 border rounded"
+                class="border border-dark rounded-md p-1 w-full"
                 required
               ></textarea>
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700"
-                >Tags (comma separated)</label
-              >
+              <label class="font-poppins">Tags (comma separated)</label>
               <input
                 type="text"
                 name="tags"
-                class="mt-1 w-full px-3 py-2 border rounded"
+                class="border border-dark rounded-md p-1 w-full"
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700"
-                >Image URL</label
-              >
+              <label class="font-poppins">Image URL</label>
               <input
                 type="url"
                 name="imageUrl"
-                class="mt-1 w-full px-3 py-2 border rounded"
+                class="border border-dark rounded-md p-1 w-full"
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700"
-                >Image Alt Text</label
-              >
+              <label class="font-poppins">Image Alt Text</label>
               <input
                 type="text"
                 name="imageAlt"
-                class="mt-1 w-full px-3 py-2 border rounded"
+                class="border border-dark rounded-md p-1 w-full"
               />
             </div>
-
-            <div class="flex justify-end gap-2 pt-4">
+            <div>
+              <label class="font-poppins">End Date</label>
+              <input
+                type="date"
+                name="endDate"
+                class="border border-dark rounded-md p-1 w-full"
+                required
+              />
+            </div>
+            <div class="flex flex-col justify-center gap-2 pt-4">
               <button
                 type="submit"
                 class="bg-primary text-light py-2 px-4 rounded-lg border border-primary font-poppins font-semibold shadow shadow-dark hover:bg-light hover:text-primary transition duration-300"
               >
-                Save Changes
+                Post Listing
               </button>
-              <button type="button" id="cancel-btn" class="text-dark">
+              <button type="button" id="cancel-btn" class="text-dark mt-2">
                 Cancel
               </button>
             </div>
+            <div id="create-listing-loader"></div>
+            <div id="message-container"></div>
           </form>
         </div>
       </section>
