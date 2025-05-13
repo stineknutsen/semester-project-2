@@ -151,8 +151,10 @@
         </div>
       </nav>
     </header>
-    <main class="bg-light flex flex-col align-middle justify-center mx-auto">
-      <section id="profile-header"></section>
+    <main
+      class="bg-light flex flex-col align-middle justify-center mx-auto max-w-[1200px]"
+    >
+      <section id="profile-header" class="flex justify-center"></section>
       <div id="profile-loader" class="flex justify-center">
         <svg
           aria-hidden="true"
@@ -270,12 +272,46 @@
         </div>
         <div id="edit-profile-message" class="flex justify-center"></div>
       </section>
-      <section id="profile-menu">
-        <p>Listings</p>
-        <p>Bids</p>
-        <p>Purchases</p>
+      <section>
+        <div class="bg-secondary px-4 pt-2 mt-4">
+          <div class="flex space-x-8 border-b border-secondary">
+            <button
+              class="tab font-semibold pb-2 border-b-4 border-primary"
+              data-tab="listings"
+            >
+              Listings
+            </button>
+            <button
+              class="tab font-semibold pb-2 border-b-4 border-transparent hover:border-primary"
+              data-tab="bids"
+            >
+              Bids
+            </button>
+            <button
+              class="tab font-semibold pb-2 border-b-4 border-transparent hover:border-primary"
+              data-tab="purchases"
+            >
+              Purchases
+            </button>
+          </div>
+        </div>
+        <div class="p-4">
+          <div class="tab-content" id="listings">
+            For development: This is the Listings section.
+          </div>
+          <div class="tab-content hidden" id="bids">
+            For development:This is the Bids section.
+          </div>
+          <div class="tab-content hidden" id="purchases">
+            For development: This is the Purchases section.
+          </div>
+        </div>
       </section>
-      <section id="listings"></section>
+
+      <section
+        id="profile-listings"
+        class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mx-2"
+      ></section>
       <section id="edit listing"></section>
     </main>
     <footer class="bg-secondary p-4 shadow-inner shadow-dark">
