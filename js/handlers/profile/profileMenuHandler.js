@@ -1,4 +1,5 @@
 import { displayProfileListings } from "../listings/displayProfileListings.js";
+import { editListingHandler } from "../listings/editListingHandler.js";
 
 export function profileMenuHandler() {
   const tabs = document.querySelectorAll(".tab");
@@ -16,6 +17,7 @@ export function profileMenuHandler() {
 
     if (selectedTab === "listings") {
       displayProfileListings(listingsContainer);
+      editListingHandler();
     } else if (selectedTab === "bids") {
       //displayProfileBids(listingsContainer);
       listingsContainer.textContent =

@@ -32,6 +32,7 @@ export function renderProfileListings(container, listings) {
       "right-5"
     );
     editButton.textContent = "Edit Listing";
+    editButton.dataset.action = "edit";
     editButton.dataset.id = listing.id;
 
     const image = listing.media[0];
@@ -44,16 +45,25 @@ export function renderProfileListings(container, listings) {
     const titleElement = document.createElement("h2");
     titleElement.textContent = title;
     titleElement.classList.add("text-2xl", "font-ledger", "my-2");
+    titleElement.dataset.type = "title";
 
     const description = listing.description;
     const descriptionElement = document.createElement("p");
     descriptionElement.textContent = description;
     descriptionElement.classList.add("font-poppins");
+    descriptionElement.dataset.type = "description";
+
+    const tags = listing.tags.join(", ");
+    const tagsElement = document.createElement("p");
+    tagsElement.textContent = "Tags: " + tags.split(",").join(", ");
+    tagsElement.classList.add("font-poppins", "bg-secondary", "px-2", "py-1");
+    tagsElement.dataset.type = "tags";
 
     const endDate = new Date(listing.endsAt);
     const endDateElement = document.createElement("p");
     endDateElement.textContent = "End Date: " + endDate.toLocaleDateString();
     endDateElement.classList.add("font-poppins");
+    endDateElement.dataset.type = "endsAt";
 
     const bids = listing._count.bids;
     const bidsElement = document.createElement("p");
@@ -91,6 +101,7 @@ export function renderProfileListings(container, listings) {
       titleElement,
       endDateElement,
       descriptionElement,
+      tagsElement,
       bidsElement,
       editButton,
       viewButton

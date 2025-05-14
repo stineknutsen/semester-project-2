@@ -4,6 +4,7 @@ import { renderProfile } from "../../ui/profile/renderProfile.js";
 import { showLoader, hideLoader } from "../../utils/loader.js";
 import { getUsername } from "../../utils/localStorage.js";
 import { profileMenuHandler } from "./profileMenuHandler.js";
+import { editListingHandler } from "../listings/editListingHandler.js";
 
 export async function displayProfile() {
   const headerContainer = document.getElementById("profile-header");

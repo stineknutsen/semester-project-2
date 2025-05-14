@@ -1,15 +1,9 @@
 import { getToken } from "../../utils/localStorage.js";
 import { ALL_POSTS_URL, NOROFF_API_KEY } from "../../constants/api.js";
 
-export async function deleteListing(listingId) {
+export async function fetchListingById(listingId) {
   const token = getToken();
-
-  if (!token) {
-    throw new Error("Log in to delete listing");
-  }
-
   const options = {
-    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -18,8 +12,14 @@ export async function deleteListing(listingId) {
   };
   const LISTING_URL = `${ALL_POSTS_URL}/${listingId}`;
   const response = await fetch(LISTING_URL, options);
+  const json = await response.json();
+
   if (!response.ok) {
-    throw new Error("Failed to delete listing");
+    const errorMessage = Array.isArray(json.errors)
+      ? json.errors.map((err) => err.message)
+      : [json.message || "Listing creation failed"];
+
+    throw errorMessage;
   }
-  return response;
+  return json.data;
 }
