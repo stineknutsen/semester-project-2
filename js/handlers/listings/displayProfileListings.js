@@ -11,10 +11,10 @@ export async function displayProfileListings() {
   }
 
   try {
-    showLoader("profile-loader");
+    showLoader("profile-listings-loader");
     const listings = await fetchLoggedInUserListings();
     renderProfileListings(listingsContainer, listings);
-    hideLoader("profile-loader");
+    hideLoader("profile-listings-loader");
   } catch (error) {
     hideLoader();
     displayMessage(listingsContainer, "error", error.message);

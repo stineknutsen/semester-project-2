@@ -1,21 +1,41 @@
+import { displayProfileListings } from "../listings/displayProfileListings.js";
+
 export function profileMenuHandler() {
   const tabs = document.querySelectorAll(".tab");
-  const tabContents = document.querySelectorAll(".tab-content");
+  const listingsContainer = document.getElementById("profile-listings");
+  function handleTabSwitch(selectedTab, tab) {
+    tabs.forEach(
+      (t) =>
+        t.classList.remove("border-primary") +
+        t.classList.add("border-transparent")
+    );
+    tab.classList.add("border-primary");
+    tab.classList.remove("border-transparent");
+
+    listingsContainer.innerHTML = "";
+
+    if (selectedTab === "listings") {
+      displayProfileListings(listingsContainer);
+    } else if (selectedTab === "bids") {
+      //displayProfileBids(listingsContainer);
+      listingsContainer.textContent =
+        "For development: This is the Bids section.";
+    } else if (selectedTab === "purchases") {
+      //displayProfilePurchases(listingsContainer);
+      listingsContainer.textContent =
+        "For development: This is the Purchases section.";
+    }
+  }
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       const selectedTab = tab.dataset.tab;
-
-      tabs.forEach((t) => {
-        t.classList.remove("border-red-500");
-        t.classList.add("border-transparent");
-      });
-
-      tab.classList.remove("border-transparent");
-      tab.classList.add("border-red-500");
-
-      tabContents.forEach((content) => content.classList.add("hidden"));
-      document.getElementById(selectedTab).classList.remove("hidden");
+      handleTabSwitch(selectedTab, tab);
     });
   });
+
+  const defaultTab = document.querySelector('.tab[data-tab="listings"]');
+  if (defaultTab) {
+    handleTabSwitch("listings", defaultTab);
+  }
 }

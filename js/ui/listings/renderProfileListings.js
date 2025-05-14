@@ -1,4 +1,5 @@
 export function renderProfileListings(container, listings) {
+  container.innerHTML = "";
   if (!listings || listings.length === 0) {
     container.innerHTML = "<p>No listings to display</p>";
     return;

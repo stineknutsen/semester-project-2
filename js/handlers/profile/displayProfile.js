@@ -3,7 +3,6 @@ import { fetchProfile } from "../../api/profile/fetchProfile.js";
 import { renderProfile } from "../../ui/profile/renderProfile.js";
 import { showLoader, hideLoader } from "../../utils/loader.js";
 import { getUsername } from "../../utils/localStorage.js";
-import { displayProfileListings } from "../../handlers/listings/displayProfileListings.js";
 import { profileMenuHandler } from "./profileMenuHandler.js";
 
 export async function displayProfile() {
@@ -21,7 +20,6 @@ export async function displayProfile() {
     renderProfile(profileData, headerContainer);
     editProfileHandler(profileData);
     profileMenuHandler();
-    displayProfileListings();
     hideLoader("profile-loader");
   } catch (error) {
     console.error("Profile fetch failed:", error);
