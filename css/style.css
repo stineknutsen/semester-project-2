@@ -1022,16 +1022,12 @@ video {
   max-width: 350px;
 }
 
-.max-w-md{
-  max-width: 28rem;
-}
-
-.max-w-xl{
-  max-width: 36rem;
-}
-
 .max-w-lg{
   max-width: 32rem;
+}
+
+.max-w-md{
+  max-width: 28rem;
 }
 
 .flex-shrink{
@@ -2250,6 +2246,11 @@ video {
 .object-scale-down{
   -o-object-fit: scale-down;
      object-fit: scale-down;
+}
+
+.object-bottom{
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 
 .p-0{

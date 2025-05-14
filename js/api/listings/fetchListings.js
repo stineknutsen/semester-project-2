@@ -1,14 +1,11 @@
-import { NOROFF_API_KEY, TAG_POSTS_URL } from "../../constants/api.js";
+import { TAG_POSTS_URL, NOROFF_API_KEY } from "../../constants/api.js";
 
-export async function createListing(postData, token) {
+export async function fetchListings() {
   const options = {
-    method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
       "X-NOROFF-API-KEY": NOROFF_API_KEY,
     },
-    body: JSON.stringify(postData),
   };
   const response = await fetch(TAG_POSTS_URL, options);
   const json = await response.json();
@@ -16,9 +13,10 @@ export async function createListing(postData, token) {
   if (!response.ok) {
     const errorMessage = Array.isArray(json.errors)
       ? json.errors.map((err) => err.message)
-      : [json.message || "Listing creation failed"];
+      : [json.message || "Failed to fetch listings"];
 
     throw errorMessage;
   }
+  console.log(json);
   return json.data;
 }

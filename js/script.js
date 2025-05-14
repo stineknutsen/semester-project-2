@@ -5,6 +5,7 @@ import { toggleMenu } from "./utils/toggleMenu.js";
 import { updateHeader } from "./utils/updateHeader.js";
 import { displayProfile } from "./handlers/profile/displayProfile.js";
 import { createListingHandler } from "./handlers/listings/createListingHandler.js";
+import { displayFeedListings } from "./handlers/listings/displayFeedListings.js";
 
 function router() {
   const { pathname } = window.location;
@@ -14,6 +15,7 @@ function router() {
     case "/index":
     case "/index.html":
       createListingHandler();
+      displayFeedListings();
       break;
     case "/account/register":
     case "/account/register.html":
