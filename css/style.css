@@ -818,6 +818,10 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
 .mb-4{
   margin-bottom: 1rem;
 }
@@ -2103,6 +2107,11 @@ video {
 .bg-\[rgb\(255\2c 0\2c 0\)\]{
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity, 1));
+}
+
+.bg-dark{
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 4 4 / var(--tw-bg-opacity, 1));
 }
 
 .bg-green-100{

@@ -6,6 +6,7 @@ import { updateHeader } from "./utils/updateHeader.js";
 import { displayProfile } from "./handlers/profile/displayProfile.js";
 import { createListingHandler } from "./handlers/listings/createListingHandler.js";
 import { displayFeedListings } from "./handlers/listings/displayFeedListings.js";
+import { displaySingleListing } from "./handlers/listings/displaySingleListing.js";
 
 function router() {
   const { pathname } = window.location;
@@ -28,6 +29,10 @@ function router() {
     case "/account/profile":
     case "/account/profile.html":
       displayProfile();
+      break;
+    case "/listings/":
+    case "/listings/index.html":
+      displaySingleListing();
       break;
   }
 }

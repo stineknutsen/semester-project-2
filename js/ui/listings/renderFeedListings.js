@@ -6,8 +6,8 @@ export function renderFeedListings(container, listings) {
   }
 
   listings.forEach((listing) => {
-    const postElement = document.createElement("div");
-    postElement.classList.add(
+    const listingElement = document.createElement("div");
+    listingElement.classList.add(
       "mb-4",
       "border",
       "border-dark",
@@ -45,6 +45,12 @@ export function renderFeedListings(container, listings) {
     titleElement.textContent = title;
     titleElement.classList.add("text-2xl", "font-ledger", "my-2");
     titleElement.dataset.type = "title";
+
+    const created = new Date(listing.created);
+    const createdElement = document.createElement("p");
+    createdElement.textContent = "Created " + created.toLocaleDateString();
+    createdElement.classList.add("font-poppins");
+    createdElement.dataset.type = "created";
 
     const description = listing.description;
     const descriptionElement = document.createElement("p");
@@ -86,18 +92,24 @@ export function renderFeedListings(container, listings) {
       "w-full",
       "hover:bg-secondary"
     );
-    viewButton.textContent = "See Auction";
     viewButton.dataset.id = listing.id;
 
-    postElement.append(
+    const viewLink = document.createElement("a");
+    viewLink.textContent = "See Auction";
+    viewLink.classList.add("w-full");
+    viewLink.href = "/listings/index.html?id=" + listing.id;
+    viewButton.append(viewLink);
+
+    listingElement.append(
       imageElement,
       titleElement,
       endDateElement,
+      createdElement,
       descriptionElement,
       tagsElement,
       bidsElement,
       viewButton
     );
-    container.append(postElement);
+    container.append(listingElement);
   });
 }
