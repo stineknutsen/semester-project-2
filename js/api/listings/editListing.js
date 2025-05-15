@@ -1,4 +1,4 @@
-import { ALL_POSTS_URL, NOROFF_API_KEY } from "../../constants/api.js";
+import { ALL_LISTINGS_URL, NOROFF_API_KEY } from "../../constants/api.js";
 import { getToken } from "../../utils/localStorage.js";
 
 export async function editListing(listingId, updatedListing) {
@@ -18,7 +18,7 @@ export async function editListing(listingId, updatedListing) {
     body: JSON.stringify(updatedListing),
   };
 
-  const LISTING_URL = `${ALL_POSTS_URL}/${listingId}`;
+  const LISTING_URL = `${ALL_LISTINGS_URL}/${listingId}`;
   const response = await fetch(LISTING_URL, options);
 
   if (!response.ok) {

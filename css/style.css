@@ -2248,11 +2248,6 @@ video {
      object-fit: scale-down;
 }
 
-.object-bottom{
-  -o-object-position: bottom;
-     object-position: bottom;
-}
-
 .p-0{
   padding: 0px;
 }

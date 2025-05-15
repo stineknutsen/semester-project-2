@@ -1,4 +1,4 @@
-import { NOROFF_API_KEY, TAG_POSTS_URL } from "../../constants/api.js";
+import { NOROFF_API_KEY, ALL_LISTINGS_URL } from "../../constants/api.js";
 
 export async function createListing(postData, token) {
   const options = {
@@ -10,7 +10,7 @@ export async function createListing(postData, token) {
     },
     body: JSON.stringify(postData),
   };
-  const response = await fetch(TAG_POSTS_URL, options);
+  const response = await fetch(ALL_LISTINGS_URL, options);
   const json = await response.json();
 
   if (!response.ok) {

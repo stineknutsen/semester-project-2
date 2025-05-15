@@ -1,4 +1,4 @@
-import { TAG_POSTS_URL, NOROFF_API_KEY } from "../../constants/api.js";
+import { ALL_LISTINGS_URL, NOROFF_API_KEY } from "../../constants/api.js";
 
 export async function fetchListings() {
   const options = {
@@ -7,7 +7,7 @@ export async function fetchListings() {
       "X-NOROFF-API-KEY": NOROFF_API_KEY,
     },
   };
-  const response = await fetch(TAG_POSTS_URL, options);
+  const response = await fetch(ALL_LISTINGS_URL, options);
   const json = await response.json();
 
   if (!response.ok) {
