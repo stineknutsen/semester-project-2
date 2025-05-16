@@ -1,5 +1,6 @@
 import { displayProfileListings } from "../listings/displayProfileListings.js";
 import { editListingHandler } from "../listings/editListingHandler.js";
+import { displayProfileBids } from "../listings/displayProfileBids.js";
 
 export function profileMenuHandler() {
   const tabs = document.querySelectorAll(".tab");
@@ -19,13 +20,9 @@ export function profileMenuHandler() {
       displayProfileListings(listingsContainer);
       editListingHandler();
     } else if (selectedTab === "bids") {
-      //displayProfileBids(listingsContainer);
-      listingsContainer.textContent =
-        "For development: This is the Bids section.";
+      displayProfileBids(listingsContainer);
     } else if (selectedTab === "purchases") {
       //displayProfilePurchases(listingsContainer);
-      listingsContainer.textContent =
-        "For development: This is the Purchases section.";
     }
   }
 

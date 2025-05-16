@@ -7,7 +7,8 @@ export async function fetchListings() {
       "X-NOROFF-API-KEY": NOROFF_API_KEY,
     },
   };
-  const response = await fetch(ALL_LISTINGS_URL, options);
+  const LISTINGS_URL = `${ALL_LISTINGS_URL}?_bids=true&_seller=true`;
+  const response = await fetch(LISTINGS_URL, options);
   const json = await response.json();
 
   if (!response.ok) {
@@ -17,6 +18,5 @@ export async function fetchListings() {
 
     throw errorMessage;
   }
-  console.log(json);
   return json.data;
 }

@@ -67,7 +67,6 @@ export function editListingHandler() {
       throw error;
     }
   });
-  console.log("yes queen");
 
   cancelBtn.addEventListener("click", () => {
     document.getElementById("edit-profile-listings").classList.add("hidden");

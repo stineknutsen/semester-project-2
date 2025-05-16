@@ -19,8 +19,6 @@ export async function bidOnListing(listingId, amount) {
 
   const json = await response.json();
 
-  console.log(json);
-
   if (!response.ok) {
     throw response.errors || new Error(response.message);
   }
