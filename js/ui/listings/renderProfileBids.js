@@ -25,16 +25,18 @@ export function renderProfileBids(container, listings) {
     );
 
     const titleElement = document.createElement("a");
-    titleElement.href = `/listings/${listing.id}`;
-    titleElement.classList.add("text-2xl", "font-bold", "hover:underline");
+    titleElement.href = `/listings/index.html?id=${listing.id}`;
+    titleElement.classList.add("text-2xl", "font-ledger", "hover:underline");
     titleElement.textContent = listing.title;
 
     const username = getUsername();
-    const usersBid = listing.bids?.some((bid) => bid.bidder.name === username);
+    const usersBid = listing.bids?.filter(
+      (bid) => bid.bidder.name === username
+    );
 
     const bidElement = document.createElement("p");
-    bidElement.classList.add("text-lg", "font-semibold");
-    bidElement.textContent = `Bid: ${usersBid.value}`;
+    bidElement.classList.add("font-poppins");
+    bidElement.textContent = `Bid: ${usersBid[0].amount} credits`;
 
     postElement.append(titleElement, bidElement);
 
