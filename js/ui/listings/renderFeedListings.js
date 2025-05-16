@@ -5,6 +5,8 @@ export function renderFeedListings(container, listings) {
     return;
   }
 
+  listings.sort((a, b) => new Date(b.created) - new Date(a.created));
+
   listings.forEach((listing) => {
     const listingElement = document.createElement("div");
     listingElement.classList.add(
@@ -19,7 +21,8 @@ export function renderFeedListings(container, listings) {
       "flex-col",
       "justify-between",
       "gap-4",
-      "flex-grow"
+      "flex-grow",
+      "overflow-hidden"
     );
 
     const endDate = new Date(listing.endsAt);
@@ -47,7 +50,7 @@ export function renderFeedListings(container, listings) {
 
     const title = listing.title;
     const titleElement = document.createElement("h2");
-    titleElement.textContent = title;
+    titleElement.textContent = title.slice(0, 100);
     titleElement.classList.add("text-2xl", "font-ledger", "my-2");
     titleElement.dataset.type = "title";
 
@@ -117,6 +120,12 @@ export function renderFeedListings(container, listings) {
     viewLink.classList.add("w-full");
     viewLink.href = "/listings/index.html?id=" + listing.id;
     viewButton.append(viewLink);
+
+    if (endDate < new Date()) {
+      endDateElement.textContent =
+        "Auction ended: " + endDate.toLocaleDateString();
+      endDateElement.classList.add("text-primary");
+    }
 
     listingElement.append(
       imageElement,

@@ -8,6 +8,8 @@ export function renderSingleListing(container, listing) {
     return;
   }
 
+  const token = getToken();
+
   const listingElement = document.createElement("div");
   listingElement.classList.add(
     "p-4",
@@ -27,6 +29,11 @@ export function renderSingleListing(container, listing) {
   const titleElement = document.createElement("h2");
   titleElement.classList.add("text-3xl", "font-ledger", "mb-4");
   titleElement.textContent = listing.title;
+
+  const sellerName = listing.seller.name;
+  const sellerElement = document.createElement("p");
+  sellerElement.classList.add("font-poppins");
+  sellerElement.textContent = `Seller: ${sellerName}`;
 
   const imageElement = document.createElement("img");
   imageElement.src = listing.media[0].url;
@@ -57,18 +64,12 @@ export function renderSingleListing(container, listing) {
     "top-4",
     "right-4"
   );
-  endDateElement.textContent = `Ends ${endDate.toLocaleDateString()}`;
+  endDateElement.textContent = `End date: ${endDate.toLocaleDateString()}`;
 
   const createdElement = document.createElement("p");
-  createdElement.classList.add(
-    "shadow",
-    "px-3",
-    "py-1",
-    "rounded-md",
-    "font-poppins"
-  );
+  createdElement.classList.add("font-poppins");
   const date = new Date(listing.created);
-  createdElement.textContent = `Posted ${date.toLocaleDateString()}`;
+  createdElement.textContent = `Posted: ${date.toLocaleDateString()}`;
 
   const tagsElement = document.createElement("div");
   tagsElement.classList.add("flex", "flex-wrap", "gap-2", "mb-4");
@@ -107,9 +108,10 @@ export function renderSingleListing(container, listing) {
     const amountElement = document.createElement("p");
     const bidTimeElement = document.createElement("p");
 
-    bidderElement.textContent = bid.bidder.name;
-    amountElement.textContent = bid.amount;
-    bidTimeElement.textContent = new Date(bid.created).toLocaleString();
+    bidderElement.textContent = "Bidder: " + bid.bidder.name;
+    amountElement.textContent = "Amount: " + bid.amount + " credits";
+    bidTimeElement.textContent =
+      "Time: " + new Date(bid.created).toLocaleString();
 
     bidElement.append(bidderElement, amountElement, bidTimeElement);
     bidsElement.append(bidElement);
@@ -118,7 +120,7 @@ export function renderSingleListing(container, listing) {
   const placeBidElement = document.createElement("form");
   //placeBidElement.action = `/bids.html?id=${listing.id}`;
   placeBidElement.method = "post";
-  placeBidElement.classList.add("flex", "items-center", "gap-2");
+  placeBidElement.classList.add("flex", "flex-wrap", "items-center", "gap-2");
   const placeBidInput = document.createElement("input");
   placeBidInput.type = "number";
   placeBidInput.name = "amount";
@@ -134,7 +136,8 @@ export function renderSingleListing(container, listing) {
     "font-poppins",
     "border",
     "border-dark",
-    "rounded-md"
+    "rounded-md",
+    "w-full"
   );
   const placeBidButton = document.createElement("button");
   placeBidButton.type = "submit";
@@ -150,12 +153,14 @@ export function renderSingleListing(container, listing) {
     "py-1",
     "font-poppins",
     "font-semibold",
-    "rounded-md"
+    "rounded-md",
+    "transition",
+    "duration-300"
   );
   placeBidButton.textContent = "Place Bid";
 
   const loginElement = document.createElement("a");
-  loginElement.href = "/login.html";
+  loginElement.href = "/account/login.html";
   loginElement.classList.add(
     "bg-secondary",
     "text-dark",
@@ -168,8 +173,6 @@ export function renderSingleListing(container, listing) {
   );
   loginElement.textContent = "Please register or log in to place bids";
 
-  const token = getToken();
-
   if (!token) {
     placeBidElement.classList.add("hidden");
     return;
@@ -178,13 +181,22 @@ export function renderSingleListing(container, listing) {
     loginElement.classList.add("hidden");
   }
 
+  if (endDate < Date.now()) {
+    endDateElement.textContent =
+      "Listing ended: " + endDate.toLocaleDateString();
+    endDateElement.classList.add("text-primary");
+    placeBidElement.classList.add("hidden");
+    loginElement.classList.add("hidden");
+  }
+
   imageDiv.append(imageElement, endDateElement);
   placeBidElement.append(placeBidInput, placeBidButton);
   infoDiv.append(
     titleElement,
+    sellerElement,
+    createdElement,
     descriptionElement,
     tagsElement,
-    createdElement,
     loginElement,
     placeBidElement,
     bidsElement
