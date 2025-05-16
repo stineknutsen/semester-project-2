@@ -32,6 +32,8 @@ export function renderSingleListing(container, listing) {
 
   const sellerName = listing.seller.name;
   const sellerElement = document.createElement("p");
+  sellerElement.id = "listing-seller";
+  sellerElement.dataset.seller = sellerName;
   sellerElement.classList.add("font-poppins");
   sellerElement.textContent = `Seller: ${sellerName}`;
 
@@ -90,10 +92,9 @@ export function renderSingleListing(container, listing) {
 
   const bids = listing.bids.sort((a, b) => b.amount - a.amount);
   const bidsElement = document.createElement("div");
-  bidsElement.textContent = "Recent Bids:";
+  bidsElement.textContent = "Bid History:";
   bidsElement.classList.add("font-poppins");
   bids.forEach((bid) => {
-    console.log(bid);
     const bidElement = document.createElement("div");
     bidElement.classList.add(
       "font-poppins",
@@ -117,9 +118,17 @@ export function renderSingleListing(container, listing) {
     bidsElement.append(bidElement);
   });
 
+  const highestBid = bids[0];
+  const highestBidElement = document.createElement("p");
+  highestBidElement.dataset.amount = highestBid.amount;
+  highestBidElement.id = "highestBidDisplay";
+  highestBidElement.classList.add("font-poppins");
+  highestBidElement.textContent = `Highest bid: ${highestBid.amount} credits`;
+
   const placeBidElement = document.createElement("form");
-  //placeBidElement.action = `/bids.html?id=${listing.id}`;
+  placeBidElement.dataset.id = listing.id;
   placeBidElement.method = "post";
+  placeBidElement.id = "place-bid-form";
   placeBidElement.classList.add("flex", "flex-wrap", "items-center", "gap-2");
   const placeBidInput = document.createElement("input");
   placeBidInput.type = "number";
@@ -197,6 +206,7 @@ export function renderSingleListing(container, listing) {
     createdElement,
     descriptionElement,
     tagsElement,
+    highestBidElement,
     loginElement,
     placeBidElement,
     bidsElement

@@ -14,7 +14,12 @@ export function renderProfileListings(container, listings) {
       "p-4",
       "shadow",
       "rounded-lg",
-      "relative"
+      "relative",
+      "flex",
+      "flex-col",
+      "justify-between",
+      "gap-4",
+      "flex-grow"
     );
 
     const editButton = document.createElement("button");
@@ -53,10 +58,24 @@ export function renderProfileListings(container, listings) {
     descriptionElement.classList.add("font-poppins");
     descriptionElement.dataset.type = "description";
 
-    const tags = listing.tags.join(", ");
-    const tagsElement = document.createElement("p");
-    tagsElement.textContent = "Tags: " + tags.split(",").join(", ");
-    tagsElement.classList.add("font-poppins", "bg-secondary", "px-2", "py-1");
+    const tags = listing.tags;
+    const tagsElement = document.createElement("div");
+    tagsElement.classList.add("flex", "flex-wrap");
+    tags.forEach((tag) => {
+      const tagElement = document.createElement("p");
+      tagElement.textContent = tag;
+      tagElement.classList.add(
+        "font-poppins",
+        "bg-secondary",
+        "px-2",
+        "py-1",
+        "rounded-full",
+        "shadow",
+        "mr-2"
+      );
+      tagElement.dataset.type = "tags";
+      tagsElement.appendChild(tagElement);
+    });
     tagsElement.dataset.type = "tags";
 
     const endDate = new Date(listing.endsAt);
@@ -93,8 +112,13 @@ export function renderProfileListings(container, listings) {
       "w-full",
       "hover:bg-secondary"
     );
-    viewButton.textContent = "See Auction";
     viewButton.dataset.id = listing.id;
+
+    const viewLink = document.createElement("a");
+    viewLink.textContent = "See Auction";
+    viewLink.classList.add("w-full");
+    viewLink.href = "/listings/index.html?id=" + listing.id;
+    viewButton.append(viewLink);
 
     postElement.append(
       imageElement,

@@ -78,6 +78,7 @@ export function renderFeedListings(container, listings) {
         "px-2",
         "py-1",
         "rounded-full",
+        "shadow",
         "mr-2"
       );
       tagElement.dataset.type = "tags";
