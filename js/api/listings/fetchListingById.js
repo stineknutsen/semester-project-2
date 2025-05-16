@@ -10,7 +10,7 @@ export async function fetchListingById(listingId) {
       "X-NOROFF-API-KEY": NOROFF_API_KEY,
     },
   };
-  const LISTING_URL = `${ALL_LISTINGS_URL}/${listingId}`;
+  const LISTING_URL = `${ALL_LISTINGS_URL}/${listingId}?_bids=true&_seller=true`;
   const response = await fetch(LISTING_URL, options);
   const json = await response.json();
 

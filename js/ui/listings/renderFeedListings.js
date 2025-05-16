@@ -14,7 +14,12 @@ export function renderFeedListings(container, listings) {
       "p-4",
       "shadow",
       "rounded-lg",
-      "relative"
+      "relative",
+      "flex",
+      "flex-col",
+      "justify-between",
+      "gap-4",
+      "flex-grow"
     );
 
     const endDate = new Date(listing.endsAt);
@@ -58,10 +63,23 @@ export function renderFeedListings(container, listings) {
     descriptionElement.classList.add("font-poppins");
     descriptionElement.dataset.type = "description";
 
-    const tags = listing.tags.join(" ");
-    const tagsElement = document.createElement("p");
-    tagsElement.textContent = tags.split(",").join(", ");
-    tagsElement.classList.add("font-poppins", "bg-secondary", "px-2", "py-1");
+    const tags = listing.tags;
+    const tagsElement = document.createElement("div");
+    tagsElement.classList.add("flex", "flex-wrap");
+    tags.forEach((tag) => {
+      const tagElement = document.createElement("p");
+      tagElement.textContent = tag;
+      tagElement.classList.add(
+        "font-poppins",
+        "bg-secondary",
+        "px-2",
+        "py-1",
+        "rounded-full",
+        "mr-2"
+      );
+      tagElement.dataset.type = "tags";
+      tagsElement.appendChild(tagElement);
+    });
     tagsElement.dataset.type = "tags";
 
     const bids = listing._count.bids;
