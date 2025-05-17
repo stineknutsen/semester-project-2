@@ -5,8 +5,6 @@ export function renderFeedListings(container, listings) {
     return;
   }
 
-  listings.sort((a, b) => new Date(b.created) - new Date(a.created));
-
   listings.forEach((listing) => {
     const listingElement = document.createElement("div");
     listingElement.classList.add(
