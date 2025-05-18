@@ -1,6 +1,7 @@
 import { displayProfileListings } from "../listings/displayProfileListings.js";
 import { editListingHandler } from "../listings/editListingHandler.js";
 import { displayProfileBids } from "../listings/displayProfileBids.js";
+import { displayProfilePurchases } from "../listings/displayProfilePurchases.js";
 
 export function profileMenuHandler() {
   const tabs = document.querySelectorAll(".tab");
@@ -22,7 +23,7 @@ export function profileMenuHandler() {
     } else if (selectedTab === "bids") {
       displayProfileBids(listingsContainer);
     } else if (selectedTab === "purchases") {
-      //displayProfilePurchases(listingsContainer);
+      displayProfilePurchases(listingsContainer);
     }
   }
 

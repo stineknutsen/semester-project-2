@@ -1,11 +1,11 @@
-export function renderProfileBids(container, bids) {
+export function renderProfilePurchases(container, winnings) {
   container.innerHTML = "";
-  if (!bids || bids.length === 0) {
-    container.innerHTML = "<p>No bids to display</p>";
+  if (!winnings || winnings.length === 0) {
+    container.innerHTML = "<p>No purchases to display</p>";
     return;
   }
 
-  bids.forEach((bid) => {
+  winnings.forEach((winning) => {
     const listingElement = document.createElement("div");
     listingElement.classList.add(
       "mb-4",
@@ -23,13 +23,13 @@ export function renderProfileBids(container, bids) {
     );
 
     const titleElement = document.createElement("a");
-    titleElement.href = `/listings/index.html?id=${bid.listing.id}`;
+    titleElement.href = `/listings/index.html?id=${winning.listing.id}`;
     titleElement.classList.add("text-2xl", "font-ledger", "hover:underline");
-    titleElement.textContent = bid.listing.title;
+    titleElement.textContent = winning.listing.title;
 
     const bidElement = document.createElement("p");
     bidElement.classList.add("font-poppins");
-    bidElement.textContent = `Bid: ${bids[0].amount} credits`;
+    bidElement.textContent = `Purchased for: ${winnings[0].amount} credits`;
 
     listingElement.append(titleElement, bidElement);
 
