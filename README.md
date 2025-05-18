@@ -1,6 +1,6 @@
 # semester-project-2 Auctioneer
 
-![Project Screenshot](./images/Screenshot 2025-05-18 at 22.38.06.png)
+![Project Screenshot](./images/screenshot.png)
 
 ## Description
 
