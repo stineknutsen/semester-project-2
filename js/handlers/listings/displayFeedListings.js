@@ -4,8 +4,11 @@ import { showLoader, hideLoader } from "../../utils/loader.js";
 import { applyFiltersAndRender } from "../../utils/applyFiltersAndRender.js";
 import { renderPaginationControls } from "../../ui/renderPaginationControls.js";
 
-const LIMIT = 24;
+const limit = 24;
 let currentPage = 1;
+let currentSort = "created";
+let currentSortOrder = "desc";
+
 export async function displayFeedListings(page = 1) {
   const listingsContainer = document.getElementById("feed-listings");
   const paginationContainer = document.getElementById("pagination-controls");
@@ -17,10 +20,15 @@ export async function displayFeedListings(page = 1) {
   try {
     showLoader("feed-listings-loader");
 
-    const response = await fetchListings(LIMIT, page);
+    const response = await fetchListings(
+      limit,
+      page,
+      currentSort,
+      currentSortOrder
+    );
     const listings = response.data;
     const totalCount = response.meta.totalCount;
-    const totalPages = Math.ceil(totalCount / LIMIT);
+    const totalPages = Math.ceil(totalCount / limit);
 
     currentPage = page;
     applyFiltersAndRender(listings, listingsContainer);
@@ -31,11 +39,20 @@ export async function displayFeedListings(page = 1) {
       displayFeedListings
     );
 
-    document.getElementById("search-input").addEventListener("input", () => {
-      applyFiltersAndRender(listings, listingsContainer);
+    listingsContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    const sortSelect = document.getElementById("sort-select");
+    sortSelect.addEventListener("change", (e) => {
+      if (e.target.value === "oldest") {
+        currentSortOrder = "asc";
+      } else {
+        currentSortOrder = "desc";
+      }
+      currentSort = "created";
+      displayFeedListings(1);
     });
 
-    document.getElementById("sort-select").addEventListener("change", () => {
+    document.getElementById("search-input").addEventListener("input", () => {
       applyFiltersAndRender(listings, listingsContainer);
     });
 

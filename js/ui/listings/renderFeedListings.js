@@ -18,7 +18,7 @@ export function renderFeedListings(container, listings) {
       "flex",
       "flex-col",
       "justify-between",
-      "gap-4",
+      "gap-2",
       "flex-grow",
       "overflow-hidden"
     );
@@ -105,7 +105,7 @@ export function renderFeedListings(container, listings) {
       "shadow",
       "px-3",
       "py-1",
-      "mt-4",
+      "mt-2",
       "rounded-md",
       "font-poppins",
       "font-semibold",
