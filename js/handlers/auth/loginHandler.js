@@ -2,7 +2,6 @@ import { loginUser } from "../../api/auth/loginUser.js";
 import { setToken, setUsername } from "../../utils/localStorage.js";
 import { displayMessage } from "../../utils/displayMessage.js";
 import { showLoader, hideLoader } from "../../utils/loader.js";
-import { updateHeader } from "../../utils/updateHeader.js";
 
 export function loginHandler() {
   const loginForm = document.querySelector("#login-form");
@@ -45,11 +44,7 @@ async function submitLoginForm(event) {
   const formData = new FormData(form);
   const credentials = Object.fromEntries(formData);
 
-  try {
-    const data = await loginUser(credentials);
-    setToken(data.data.accessToken);
-    setUsername(data.data.name);
-  } catch (error) {
-    throw error;
-  }
+  const data = await loginUser(credentials);
+  setToken(data.data.accessToken);
+  setUsername(data.data.name);
 }

@@ -1,10 +1,10 @@
-# semester-project-2 Auctioneer
+# Auctioneer
 
 ![Project Screenshot](./images/screenshot.png)
 
 ## Description
 
-This assignment asked to build an auction website for a fictional client. I made up a client called auctioneer, and made them a platform where people can buy and sell their items.
+Auctioneer is an auctions website built for a fictional client as Semester Project 2 for Noroff Front-end development. It is a platform where people can register a user, and buy and sell their items. It is live at https://semester-project-2-auctioneer.netlify.app/
 
 ## Pages
 
@@ -38,17 +38,25 @@ This assignment asked to build an auction website for a fictional client. I made
 
 ### Running the project locally
 
-1. Clone this repository: git clone https://github.com/stineknutsen/semester-project-2
+1. Clone this repository
 
-2. Install dependencies: npm install
+```bash
+git clone https://github.com/stineknutsen/semester-project-2
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
 
 3. Use Live Server to open index.html in your browser
 
-4. Run script: npm run build
+4. Run script:
 
-### Viewing the deployed site on netlify
-
-https://semester-project-2-auctioneer.netlify.app/
+```bash
+npm run build
+```
 
 ## Contact
 

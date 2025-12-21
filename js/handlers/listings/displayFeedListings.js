@@ -32,12 +32,17 @@ export async function displayFeedListings(page = 1) {
 
     currentPage = page;
     applyFiltersAndRender(listings, listingsContainer);
-    renderPaginationControls(
-      paginationContainer,
-      totalPages,
-      currentPage,
-      displayFeedListings
-    );
+
+    if (listings.length > 0 && totalPages > 1) {
+      renderPaginationControls(
+        paginationContainer,
+        totalPages,
+        currentPage,
+        displayFeedListings
+      );
+    } else {
+      paginationContainer.innerHTML = "";
+    }
 
     listingsContainer.scrollIntoView({ behavior: "smooth", block: "start" });
 

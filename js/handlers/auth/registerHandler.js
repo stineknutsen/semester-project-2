@@ -43,9 +43,5 @@ async function submitRegisterForm(event) {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
 
-  try {
-    await registerUser(data);
-  } catch (error) {
-    throw error;
-  }
+  await registerUser(data);
 }
